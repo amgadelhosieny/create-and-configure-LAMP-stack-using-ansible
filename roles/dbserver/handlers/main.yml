@@ -1,0 +1,14 @@
+---
+# handlers file for roles/dbserver
+- name: start mysql service
+  ansible.builtin.service:
+    name: mysql
+    state: started 
+  become: true   
+
+
+- name: Restart mysql service
+  ansible.builtin.service:
+    name: mysql
+    state: restarted 
+  become: true     

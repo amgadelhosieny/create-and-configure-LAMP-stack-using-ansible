@@ -1,0 +1,9 @@
+[all:vars]
+ansible_user = ubuntu
+ansible_ssh_private_key_file = ~/.ssh/id_rsa
+
+[webservers]
+34.228.92.34
+
+[dbservers]
+23.21.109.216

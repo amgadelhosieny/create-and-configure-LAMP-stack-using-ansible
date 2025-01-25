@@ -1,0 +1,14 @@
+---
+# - name: install webserver
+#   become: yes
+#   hosts: webservers
+#   gather_facts: no
+#   roles:  
+#     - webserver
+
+- name: install database
+  become: yes
+  hosts: dbservers
+  gather_facts: yes
+  roles:  
+    - dbserver

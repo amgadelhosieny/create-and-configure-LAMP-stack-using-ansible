@@ -14,7 +14,6 @@ This repository contains an Ansible project to automatically configure and deplo
   - [Step 2: Edit the Hosts File](#step-2-edit-the-hosts-file)
   - [Step 3: Edit Variables (Optional)](#step-3-edit-variables-optional)
   - [Step 4: Run the Playbook](#step-4-run-the-playbook)
-- [License](#license)
 - [Additional Notes](#additional-notes)
 
 ## Overview
@@ -106,10 +105,6 @@ ansible-playbook -i hosts playbook.yml
 ```
 
 This will install and configure Apache, PHP, and MySQL on your remote server.
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Additional Notes
 

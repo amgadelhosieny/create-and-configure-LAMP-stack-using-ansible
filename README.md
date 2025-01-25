@@ -23,15 +23,14 @@ This Ansible project provides two main roles:
 1. **Webserver Role**: Installs and configures Apache and PHP on your server.
 2. **Database Role**: Installs and configures MySQL, and sets up a MySQL database with a specific root password.
 
-##  AWS Deployment
+### AWS Deployment
 
 Two separate EC2 instances are created for this project:
 
-Web Server Instance: Dedicated to running Apache and PHP.
+- **Web Server Instance**: Dedicated to running Apache and PHP.
+- **Database Server Instance**: Dedicated to running MySQL.
 
-Database Server Instance: Dedicated to running MySQL.
-
-This separation of roles ensures better performance, security, and scalability. 
+This separation of roles ensures better performance, security, and scalability.
 
 ## Prerequisites
 
@@ -42,8 +41,11 @@ Before running the playbook, ensure you have the following:
   pip install ansible
   ```
 
-- **A remote server** (e.g., an EC2 instance) with SSH access.
-- The server should have **Python installed**, as Ansible uses it for executing commands.
+- **Two remote servers** (e.g., EC2 instances) with SSH access:
+  - One for the web server (Apache + PHP).
+  - One for the database server (MySQL).
+
+- The servers should have **Python installed**, as Ansible uses it for executing commands.
 - A GitHub repository to push your code (if you're working on a versioned project).
 
 ## Roles Overview
@@ -92,14 +94,14 @@ cd create-and-configure-LAMP-stack-using-ansible
 
 ### Step 2: Edit the Hosts File
 
-Update the `hosts` file with your target server's IP address or hostname. For example:
+Update the `hosts` file with your target servers' IP addresses or hostnames. For example:
 
 ```ini
 [web]
-your_server_ip_or_hostname
+web_server_ip_or_hostname
 
 [db]
-your_server_ip_or_hostname
+db_server_ip_or_hostname
 ```
 
 ### Step 3: Edit Variables (Optional)
@@ -108,17 +110,23 @@ If you'd like to change the default values, edit the `defaults/main.yml` files i
 
 ### Step 4: Run the Playbook
 
-To execute the playbook and set up the LAMP stack on your server:
+To execute the playbook and set up the LAMP stack on your servers:
 
 ```bash
 ansible-playbook -i hosts playbook.yml
 ```
 
-This will install and configure Apache, PHP, and MySQL on your remote server.
+This will:
+
+1. Install and configure Apache and PHP on the web server instance.
+2. Install and configure MySQL on the database server instance.
+
 
 ## Additional Notes
 
-- If you're using AWS EC2, ensure your security group allows incoming traffic on ports **80 (HTTP)** and **3306 (MySQL)**.
+- If you're using AWS EC2, ensure your security groups allow incoming traffic on ports:
+  - **80 (HTTP)** for the web server.
+  - **3306 (MySQL)** for the database server.
 - You may need to adjust your firewall settings for both Apache and MySQL.
-- Ensure your server has adequate resources for running a LAMP stack.
+- Ensure your servers have adequate resources for running a LAMP stack.
 

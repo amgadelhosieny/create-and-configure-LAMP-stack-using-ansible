@@ -23,6 +23,14 @@ This Ansible project provides two main roles:
 1. **Webserver Role**: Installs and configures Apache and PHP on your server.
 2. **Database Role**: Installs and configures MySQL, and sets up a MySQL database with a specific root password.
 
+## AWS Deployment
+
+Two separate EC2 instances are created for this project:
+Web Server Instance: Dedicated to running Apache and PHP.
+Database Server Instance: Dedicated to running MySQL.
+
+This separation of roles ensures better performance, security, and scalability.   
+
 ## Prerequisites
 
 Before running the playbook, ensure you have the following:
